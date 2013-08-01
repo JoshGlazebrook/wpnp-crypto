@@ -98,7 +98,7 @@ describe('WPNP Encryption', function () {
             var key = new Buffer([0xB8, 0x9D, 0x3B, 0x49, 0x71, 0xD6, 0xD1, 0x35, 0x07, 0xE7, 0x20, 0xF6, 0xA0, 0x49, 0x34, 0xAF]);
             var upkey = 3605481865, downkey = 3511224208;
 
-            it('should return a valid 0x50 crypt key type.', function () {
+            it('should return a valid 0x52 crypt key type.', function () {
                 assert.strictEqual(0x52, wpnp.getCryptKeyType(key));
             });
 
