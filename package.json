@@ -22,6 +22,5 @@
     "license": "MIT",
     "readmeFilename": "README.md",
     "dependencies": {
-        "assert": "~0.4.9"
     }
 }
