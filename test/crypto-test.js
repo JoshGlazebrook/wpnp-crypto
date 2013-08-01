@@ -162,11 +162,24 @@ describe('WPNP Encryption', function () {
 
     describe('Genac Functions', function () {
         describe('Genac Validation', function () {
-            var validgenackey = new Buffer([0x4e, 0xe7, 0x91, 0xc2, 0x95, 0x9d]);
-            var invalidgenackey = new Buffer([0xe4, 0x2f, 0x33, 0x00, 0x23, 0xee]);
+            it('should validate a valid genac key and invalidate an invalid genac key.', function () {
 
-            assert.strictEqual(true, wpnp.verifyGenacKey(validgenackey));
-            assert.strictEqual(false, wpnp.verifyGenacKey(invalidgenackey));
+
+                var validgenackey = new Buffer([0x4e, 0xe7, 0x91, 0xc2, 0x95, 0x9d]);
+                var invalidgenackey = new Buffer([0xe4, 0x2f, 0x33, 0x00, 0x23, 0xee]);
+
+                assert.strictEqual(true, wpnp.validateGenacKey(validgenackey));
+                assert.strictEqual(false, wpnp.validateGenacKey(invalidgenackey));
+            });
+        });
+
+        describe('Genac Creation', function () {
+            it('should create valid genac keys that can be verified.', function () {
+                for (var i = 0; i < 1024; i++) {
+                    var key = wpnp.createGenacKey();
+                    assert.strictEqual(true, wpnp.validateGenacKey(key));
+                }
+            });
         });
     });
 });
