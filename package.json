@@ -1,6 +1,6 @@
 {
     "name": "wpnp-crypto",
-    "version": "0.0.2",
+    "version": "1.0.0",
     "description": "An encryption library for the WinMX Peer Networking Protocol.",
     "main": "lib/wpnp-crypto.js",
     "homepage": "https://github.com/JoshGlazebrook/wpnp-crypto/",
@@ -16,7 +16,8 @@
         "wpnp"
     ],
     "engines": {
-        "node": ">= 0.10.0"
+        "node": ">= 0.10.0",
+        "npm": ">= 1.3.5"
     },
     "author": "Josh Glazebrook",
     "license": "MIT",
