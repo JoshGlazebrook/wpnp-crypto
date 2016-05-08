@@ -1,27 +1,35 @@
 {
-    "name": "wpnp-crypto",
-    "version": "1.0.0",
-    "description": "An encryption library for the WinMX Peer Networking Protocol.",
-    "main": "lib/wpnp-crypto.js",
-    "homepage": "https://github.com/JoshGlazebrook/wpnp-crypto/",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/JoshGlazebrook/wpnp-crypto.git"
-    },
-    "keywords": [
-        "winmx",
-        "encryption",
-        "protocol",
-        "winmx encryption",
-        "wpnp"
-    ],
-    "engines": {
-        "node": ">= 0.10.0",
-        "npm": ">= 1.3.5"
-    },
-    "author": "Josh Glazebrook",
-    "license": "MIT",
-    "readmeFilename": "README.md",
-    "dependencies": {
-    }
+  "name": "wpnp-crypto",
+  "version": "1.0.1",
+  "description": "An encryption library for the WinMX Peer Networking Protocol.",
+  "main": "lib/wpnp-crypto.js",
+  "homepage": "https://github.com/JoshGlazebrook/wpnp-crypto/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JoshGlazebrook/wpnp-crypto.git"
+  },
+  "keywords": [
+    "winmx",
+    "encryption",
+    "protocol",
+    "winmx encryption",
+    "wpnp"
+  ],
+  "scripts": {
+    "test": "mocha test/crypto-test.js",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha recursive test"
+  },
+  "engines": {
+    "node": ">= 0.10.0",
+    "npm": ">= 1.3.5"
+  },
+  "typings": "typings/index",
+  "author": "Josh Glazebrook",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {},
+  "devDependencies": {
+    "istanbul": "^0.4.3",
+    "mocha": "^2.4.5"
+  }
 }

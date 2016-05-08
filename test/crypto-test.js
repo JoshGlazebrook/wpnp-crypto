@@ -111,7 +111,7 @@ describe('WPNP Encryption', function () {
 
     describe('TCP Encryption', function () {
         describe('TCP Encryption Routine', function () {
-            it('should result in the same buffer as originally created.', function () {
+            it('should result in the same buffer as originally created.', function (done) {
                 var buff = new Buffer(1024), original = new Buffer(1024),
                     i;
                 for (i = 0; i < 1024; i++)
@@ -128,20 +128,21 @@ describe('WPNP Encryption', function () {
                 // Client "downstream" Key
                 var clientdownkey = wpnp.getCryptKey(key, false);
 
-                for (i = 0; i < 1024; i++) {
+                for (i = 0; i < 16; i++) {
                     wpnp.encryptMXTCP(buff, serverupkey);
                     wpnp.decryptMXTCP(buff, clientdownkey);
                 }
 
                 assert.deepEqual(original, buff);
                 assert.strictEqual(serverupkey.value, clientdownkey.value);
+                done();
             });
         });
     });
 
     describe('UDP Encryption', function () {
         describe('UDP Encryption Routine', function () {
-            it('should result in the same buffer (value wise) as originally created.', function () {
+            it('should result in the same buffer (value wise) as originally created.', function (done) {
                 var buff = new Buffer(1024), original = new Buffer(1024), i;
 
                 for (i = 0; i < 1024; i++)
@@ -149,13 +150,15 @@ describe('WPNP Encryption', function () {
 
                 buff.copy(original);
 
-                for (i = 0; i < 1024; i++)
+                for (i = 0; i < 16; i++)
                     wpnp.encryptMXUDP(buff);
 
-                for (i = 0; i < 1024; i++)
+                for (i = 0; i < 16; i++)
                     wpnp.decryptMXUDP(buff);
 
                 assert.deepEqual(original, buff);
+
+                done();
             });
         });
     });
@@ -175,7 +178,7 @@ describe('WPNP Encryption', function () {
 
         describe('Genac Creation', function () {
             it('should create valid genac keys that can be verified.', function () {
-                for (var i = 0; i < 1024; i++) {
+                for (var i = 0; i < 16; i++) {
                     var key = wpnp.createGenacKey();
                     assert.strictEqual(true, wpnp.validateGenacKey(key));
                 }
