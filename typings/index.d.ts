@@ -4,7 +4,7 @@
 
 /// <reference path="../node/node.d.ts" />
 
-declare module "wpnp-crypto" {
+export declare module "wpnp-crypto" {
 
     /**
      * Encloses a crypt key id number value.
