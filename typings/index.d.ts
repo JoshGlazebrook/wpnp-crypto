@@ -2,8 +2,6 @@
 // Project: https://github.com/JoshGlazebrook/wpnp-crypto
 // Definitions by: Josh Glazebrook <https://github.com/JoshGlazebrook>
 
-/// <reference path="../node/node.d.ts" />
-
 export declare module "wpnp-crypto" {
 
     /**
